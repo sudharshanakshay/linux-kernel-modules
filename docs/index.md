@@ -39,8 +39,6 @@ static void __exit exit_hello(void){
 
 module_init(print_hello);
 module_exit(exit_hello);
-
-[Link](url) and ![Image](src)
 ```
 
 Explaination, 
@@ -80,7 +78,7 @@ $ make
 $ sudo insmod hello.ko
 ```
 
-### Display _kernel log_
+### Display kernel log
 
 ```markdown
 $ dmesg
