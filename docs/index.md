@@ -40,9 +40,6 @@ static void __exit exit_hello(void){
 module_init(print_hello);
 module_exit(exit_hello);
 
-
-**Bold** and _Italic_ and `Code` text
-
 [Link](url) and ![Image](src)
 ```
 
@@ -52,8 +49,55 @@ Explaination,
 	2. '**__exit**' function is called when the module is removed from the kernel. 
 - '**printk()**' function in **C** language is similar to '**printf()**', but prints message to the '_kernel log_' .
 
+### Compiling kernel module
+
+- we are using 'make' program to compile our kernel module.
+- we need to create a file named '_Makefile_' 
+
+```markdown
+$ touch Makefile
+```
+- with following set of commands
+
+```markdown
+obj-m += hello.o
+all:
+	make -C /lib/modules/$(shell uname -r)/build/ M=$(PWD) modules
+
+clean:
+	make -C /lib/modules/$(shell uname -r)/build/ M=$(PWD) clean
+```
+- Now compile our kernel module by executing '_make_' .
+```markdown
+$ make
+```
+### Load the module to kernel.
+
+- once the '_make_' is successful, '_hello.ko_' file is create.
+- '_.ko_' is the kernel object.
+- insert this '_.ko_' object to the kernel by,
+```markdown
+$ sudo insmod hello.ko
+```
+
+### Display _kernel log_
+
+```markdown
+$ dmesg
+```
+
+### Unload or remove kernel module we inserted,
+
+```markdown
+$ sudo rmmod hello
+```
+
+- To display again _kernel log_
+
+```markdown
+$ dmesg
+```
+
 ### Support
 
-To update the [web page](https://github.com/sudharshanakshay/linux-kernel-modules/edit/main/docs/index.md) click [here](https://github.com/sudharshanakshay/linux-kernel-modules/edit/main/docs/index.md)
-
-
+To update the web page click [here](https://github.com/sudharshanakshay/linux-kernel-modules/edit/main/docs/index.md)
