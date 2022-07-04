@@ -65,6 +65,7 @@ all:
 clean:
 	make -C /lib/modules/$(shell uname -r)/build/ M=$(PWD) clean
 ```
+
 - Now compile our kernel module by executing '_make_' .
 
 ```markdown
