@@ -1,0 +1,1 @@
+cmd_/home/peter/Desktop/git/linux-kernel-modules/hello.ko := ld -r  -m elf_x86_64  --build-id=sha1  -T scripts/module.lds -o /home/peter/Desktop/git/linux-kernel-modules/hello.ko /home/peter/Desktop/git/linux-kernel-modules/hello.o /home/peter/Desktop/git/linux-kernel-modules/hello.mod.o;  true

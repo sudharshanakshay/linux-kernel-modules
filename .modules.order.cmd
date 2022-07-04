@@ -1,0 +1,1 @@
+cmd_/home/peter/Desktop/git/linux-kernel-modules/modules.order := {   echo /home/peter/Desktop/git/linux-kernel-modules/hello.ko; :; } | awk '!x[$$0]++' - > /home/peter/Desktop/git/linux-kernel-modules/modules.order

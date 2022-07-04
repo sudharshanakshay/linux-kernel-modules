@@ -13,9 +13,7 @@
 
 MODULE_LICENSE("GPL");
 
-MODULE_AUTHOR("Sudharshan Akshay")
-
-MODULE_DESPRIPTION("A Simple Hello world LKM ");
+MODULE_AUTHOR("Sudharshan Akshay");
 
 MODULE_VERSION("1");
 
