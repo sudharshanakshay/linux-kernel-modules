@@ -1,38 +1,59 @@
 ## Linux Kernel Modules
 	
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+Tutorial to insert & remove a Loadable kernel module [LKM].
 
-### Markdown
+### Writing a kernel module
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+Create directory '_linux-kernel-module_'
 
 ```markdown
-Syntax highlighted code block
 
-# Header 1
-## Header 2
-### Header 3
+$ mkdir linux-kernel-modules
+$ cd /linux-kernel-modules
 
-- Bulleted
-- List
+```
+Create a file '_hello.c_'
 
-1. Numbered
-2. List
+```markdown
+$ touch hello.c
+```
+Write module program in _'hello.c'_ file.
+
+```markdown
+
+#include <linux/module.h>
+#include <linux/kernel.h>
+#include <linux/init.h>
+
+
+static int __init print_hello(void){
+	printk(KERN_INFO "Loading hello module...\n");
+	printk(KERN_INFO "hello world\n");
+	return 0;
+}
+
+static void __exit exit_hello(void){
+	printk(KERN_INFO "bye bye kernel !\n");
+}
+
+module_init(print_hello);
+module_exit(exit_hello);
+
 
 **Bold** and _Italic_ and `Code` text
 
 [Link](url) and ![Image](src)
 ```
 
-For more details see [Basic writing and formatting syntax](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
+Explaination, 
+- writing kernel module requires **two** important functions i.e. '**__init**' & '**__exit**'.
+	1. '**__init**' function is called when the modules is loaded to the kernel.
+	2. '**__exit**' function is called when the module is removed from the kernel. 
+- '**printk()**' function in **C** language is similar to '**printf()**', but prints message to the '_kernel log_' .
 
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/sudharshanakshay/linux-kernel-modules/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
+### Support
 
 To update the [web page](https://github.com/sudharshanakshay/linux-kernel-modules/edit/main/docs/index.md) click [here](https://github.com/sudharshanakshay/linux-kernel-modules/edit/main/docs/index.md)
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+
