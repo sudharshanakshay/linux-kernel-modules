@@ -66,14 +66,17 @@ clean:
 	make -C /lib/modules/$(shell uname -r)/build/ M=$(PWD) clean
 ```
 - Now compile our kernel module by executing '_make_' .
+
 ```markdown
 $ make
 ```
+
 ### Load the module to kernel.
 
 - once the '_make_' is successful, '_hello.ko_' file is create.
 - '_.ko_' is the kernel object.
 - insert this '_.ko_' object to the kernel by,
+
 ```markdown
 $ sudo insmod hello.ko
 ```
